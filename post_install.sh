@@ -27,6 +27,7 @@ fi
 
 mk_squid_pam
 fix_helper_perm
+mk_users
 
 sysrc squid_enable="YES"
 service squid start
