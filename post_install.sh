@@ -12,6 +12,13 @@ fix_helper_perm() {
 }
 
 mk_users() {
+  if [ ! -f /root/chpasswd ]; then
+      echo /root/chpasswd found
+      exit 1
+  fi
+
+  chmod a+x /root/chpasswd
+
   for _user in `echo $proxy_users`; do
       pw user add $_user -m
       _z1=`echo $_user passwd | sed 's/ /_/g'`
